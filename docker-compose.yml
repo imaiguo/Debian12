@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  TrainServer:
+    image: imaiguo/debiankde:12
+    privileged: true
+    container_name: Debian12
+    restart: always
+    command: /usr/sbin/sshd -D
+    # command: startx
+    # command: /etc/init.d/xrdp start
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #       - driver: nvidia
+    #         device_ids: ['0']
+    #         capabilities: [gpu]
+    ports:
+      - "2021:22"
+      - "2022:3389"
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime     
+      
+  
