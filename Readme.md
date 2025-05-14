@@ -42,9 +42,9 @@
 
 ```bash
 > sudo docker save 0fdf2b4c26d3 > debian.12.tar
-> sudo docker save -o postgres.9.6.tar postgres:9.6
+> sudo docker save -o postgres.9.6.tar imaiguo/debian:12
 >
-> sudo docker save debian:12 > debian.12.tar
+> sudo docker save imaiguo/debian:12 > debian.12.tar
 > sudo docker load < debian.12.tar
 >
 ```

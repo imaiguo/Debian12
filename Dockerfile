@@ -14,6 +14,11 @@ RUN echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 RUN echo "root:debian12" | chpasswd
 COPY authorized_keys /root/.ssh
 
+# 添加指定用户
+RUN useradd ephraim -m
+RUN echo "ephraim:passwd123" | chpasswd
+RUN chsh -s /bin/bash ephraim
+
 # 安装firefox
 RUN install -d -m 0755 /etc/apt/keyrings
 RUN wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
