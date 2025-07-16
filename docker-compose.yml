@@ -4,6 +4,7 @@ services:
   TrainServer:
     image: imaiguo/debian:12
     container_name: Debian
+    hostname: DockerDebianDev4C
     restart: always
     command: /usr/sbin/sshd -D
     # command: /sbin/init
@@ -22,4 +23,5 @@ services:
       - ./Data:/opt/Data
       - /etc/timezone:/etc/timezone
       - /etc/localtime:/etc/localtime     
+      - ./sshkey:/home/ephraim/.ssh
       

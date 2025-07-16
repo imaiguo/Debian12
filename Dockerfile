@@ -11,12 +11,12 @@ RUN ssh-keygen -N {$RANDOM} -f /root/.ssh/id_rsa
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 RUN echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
-RUN echo "root:debian12" | chpasswd
+RUN echo "root:debian123" | chpasswd
 COPY authorized_keys /root/.ssh
 
 # 添加指定用户
 RUN useradd ephraim -m
-RUN echo "ephraim:passwd123" | chpasswd
+RUN echo "ephraim:debian123" | chpasswd
 RUN chsh -s /bin/bash ephraim
 
 # 安装firefox
